@@ -19,4 +19,9 @@ python3 test_camera_mtcnn.py
 | MobileNetV2 | 3.97 | 8.54 | 4.85 |
 
 
+# Training:
+
+The following repository has been modified for training. 
+
+https://github.com/lzx1413/pytorch_face_landmark
 
