@@ -9,7 +9,7 @@ python3 test_camera_mtcnn.py
 
 # Visualization Results
 
-![alt text](https://github.com/cunjian/pytorch_face_landmark/blob/master/results/12_Group_Group_12_Group_Group_12_10.jpg "Logo Title Text 1")
+![alt text](https://github.com/cunjian/pytorch_face_landmark/blob/master/results/12_Group_Group_12_Group_Group_12_24.jpg "Logo Title Text 1")
 
 # Benchmark Results
 
