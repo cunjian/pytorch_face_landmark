@@ -1,6 +1,6 @@
 # Face alignment demo
-# Modified from https://github.com/lzx1413/pytorch_face_landmark
-# cunjian@msu.edu
+# Uses MTCNN as face detector
+# cunjian@msu.edu, update at 2/10/2020
 from __future__ import division
 import argparse
 import torch
@@ -9,7 +9,7 @@ import cv2
 import numpy as np
 #import dlib
 from common.utils import BBox,drawLandmark,drawLandmark_multiple
-from models.basenet import ResNet, MobileNet_FCN
+from models.basenet import ResNet, MobileNet_GDConv
 import matplotlib.pyplot as plt
 from src import detect_faces
 import glob
@@ -20,7 +20,7 @@ parser.add_argument('-j', '--workers', default=8, type=int, metavar='N',
                     help='number of data loading workers (default: 4)')
 parser.add_argument('--gpu_id', default='0,1', type=str,
                     help='id(s) for CUDA_VISIBLE_DEVICES')
-parser.add_argument('-c', '--checkpoint', default='checkpoint/mobilenet_fcn_model_best.pth.tar', type=str, metavar='PATH',
+parser.add_argument('-c', '--checkpoint', default='checkpoint/mobilenet_224_model_best_gdconv.pth.tar', type=str, metavar='PATH',
                     help='path to save checkpoint (default: checkpoint)')
 
 args = parser.parse_args()
@@ -33,9 +33,8 @@ else:
     map_location='cpu'
 
 def load_model():
-    #model = BaseNet()
-    model = MobileNet_FCN(136)
-    model = torch.nn.DataParallel(model)
+    model = MobileNet_GDConv(136)
+    #model = torch.nn.DataParallel(model)
     checkpoint = torch.load(args.checkpoint, map_location=map_location)
     model.load_state_dict(checkpoint['state_dict'])
     return model

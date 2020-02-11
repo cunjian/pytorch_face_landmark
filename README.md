@@ -1,11 +1,14 @@
 # Pytorch Face Landmark Detection
 Implementation of face landmark detector with PyTorch. It utilizes the MTCNN as the face detector. The model was trained on 68-point landmark annotation of 300W dataset only and it generalizes well to unseen datasets. 
 
-## Test on a sample folder
-python3 test_batch_mtcnn.py
+## Test on a sample folder and camera
+Test on a sample folder and save the landmark detection results.
+python3 -W ignore test_batch_mtcnn.py
 
-## Test on the camera
-python3 test_camera_mtcnn.py
+Optimize with ONNX and test on a camera. Here, the pytorch model has been converted to ONNX.
+python3 -W ignore test_camera_mtcnn_onnx.py
+
+
 
 # Visualization Results
 
@@ -15,9 +18,9 @@ python3 test_camera_mtcnn.py
 
 | Algorithms | Common | Challenge | Full Set |
 |:-:|:-:|:-:|:-:|
-| ResNet18 | 3.73 | 7.14 | 4.39 |
-| MobileNetV2 | 3.97 | 8.54 | 4.85 |
-
+| ResNet18 (224×224) | 3.73 | 7.14 | 4.39 |
+| [https://drive.google.com/file/d/1w424ZxfBsv7NFwoqynRPNxe43FHABeJV/view?usp=sharing MobileNetV2] (224×224) | 3.70 | 7.27 | 4.39 |
+| [https://drive.google.com/file/d/10DyP9GqAATXFj64MmXlet84Ewb4ryP1K/view?usp=sharing MobileNetV2] (56×56) | 4.50 | 8.50 | 5.27 |
 
 # Training:
 
