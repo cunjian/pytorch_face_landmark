@@ -49,19 +49,19 @@ def load_model():
 if __name__ == '__main__':
     import onnx
 
-    onnx_model = onnx.load("landmark_detection_56.onnx")
+    onnx_model = onnx.load("landmark_detection_56_menpo.onnx")
     onnx.checker.check_model(onnx_model)
 
     import onnxruntime
 
-    ort_session = onnxruntime.InferenceSession("landmark_detection_56.onnx")
+    ort_session = onnxruntime.InferenceSession("landmark_detection_56_menpo.onnx")
 
     def to_numpy(tensor):
         return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
 
     out_size = 56
-    model = load_model()
-    model = model.eval()
+    #model = load_model()
+    #model = model.eval()
     cap = cv2.VideoCapture(0)
     success, frame = cap.read()
     while success:
