@@ -20,6 +20,9 @@ Optimize with ONNX and test on a camera. Here, the pytorch model has been conver
 
 ## Visualization Results
 
+* Semi-frontal face alignment on Menpo dataset
+![img1](https://github.com/cunjian/pytorch_face_landmark/blob/master/imgs/menpo_semi_frontal.png)
+
 * Profile face alignment on Menpo dataset
 ![img1](https://github.com/cunjian/pytorch_face_landmark/blob/master/imgs/menpo_profile_alignment.png)
 
