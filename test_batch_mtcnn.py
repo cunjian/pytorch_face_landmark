@@ -1,6 +1,6 @@
 # Face alignment demo
 # Uses MTCNN as face detector
-# cunjian@msu.edu, update at 2/10/2020
+# Cunjian Chen (cunjian@msu.edu)
 from __future__ import division
 import argparse
 import torch

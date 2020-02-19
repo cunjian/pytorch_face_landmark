@@ -1,5 +1,5 @@
 # Face alignment demo
-# cunjian@msu.edu
+# Cunjian Chen (cunjian@msu.edu)
 from __future__ import division
 import argparse
 import torch

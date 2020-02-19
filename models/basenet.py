@@ -1,7 +1,6 @@
-'''AlexNet for CIFAR10. FC layers are removed. Paddings are adjusted.
-Without BN, the start learning rate should be 0.01
-(c) YANG, Wei
-'''
+# Backbone networks used for face landmark detection
+# Cunjian Chen (cunjian@msu.edu)
+
 import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.models as models
