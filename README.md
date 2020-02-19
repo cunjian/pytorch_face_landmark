@@ -1,14 +1,15 @@
 # Pytorch Face Landmark Detection
-Implementation of face landmark detection with PyTorch. The model was trained on 68-point landmark annotation from 300W dataset. 
+Implementation of face landmark detection with PyTorch. The model was trained using coordinate-based regression methods. 
 
 * Support 68-point and 39-point landmark inference.
-
+* Support ONNX inference. 
+* Support different backbone networks.
 
 ## Inference
 Test on a sample folder and save the landmark detection results.
 > python3 -W ignore test_batch_mtcnn.py
 
-Optimize with ONNX and test on a camera. Here, the pytorch model has been converted to ONNX.
+Optimize with ONNX and test on a camera. The pytorch model has been converted to ONNX for fast inference.
 > python3 -W ignore test_camera_mtcnn_onnx.py
 
 ## Benchmark Results on 300W
@@ -36,5 +37,6 @@ Optimize with ONNX and test on a camera. Here, the pytorch model has been conver
 ## References:
 
 * https://github.com/lzx1413/pytorch_face_landmark
+* https://github.com/polarisZhao/PFLD-pytorch
 
 
