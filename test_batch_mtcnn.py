@@ -9,7 +9,7 @@ import cv2
 import numpy as np
 #import dlib
 from common.utils import BBox,drawLandmark,drawLandmark_multiple
-from models.basenet import ResNet, MobileNet_GDConv
+from models.basenet import MobileNet_GDConv
 import matplotlib.pyplot as plt
 from src import detect_faces
 import glob
