@@ -16,7 +16,7 @@ Optimize with ONNX and test on a camera. The pytorch model has been converted to
 
 * Inter-ocular Normalization (ION)
 
-| Algorithms | Common | Challenge | Full Set | Inference Time (s)
+| Algorithms | Common | Challenge | Full Set | CPU Inference (s)
 |:-:|:-:|:-:|:-:|:-:|
 | ResNet18 (224×224) | 3.73 | 7.14 | 4.39 | / |
 | [MobileNetV2 (224×224)](https://drive.google.com/file/d/1w424ZxfBsv7NFwoqynRPNxe43FHABeJV/view?usp=sharing )   | 3.70 | 7.27 | 4.39 | 1.2 |
