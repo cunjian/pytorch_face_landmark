@@ -25,20 +25,6 @@ class ConvBlock(nn.Module):
         else:
             return self.prelu(x)
             
-class ResNet(nn.Module):
-    def __init__(self,num_classes):
-        super(ResNet,self).__init__()
-        self.pretrain_net = models.resnet18(pretrained=False)
-        self.base_net = nn.Sequential(*list(self.pretrain_net.children())[:-1])
-        self.fc = nn.Linear(512,num_classes) # resnet18:512; resnet50:2048
-    def forward(self,x):
-        x = self.base_net(x)
-        #print(x.size()) #(256, 512, 1, 1)
-        x = x.view(x.size(0), -1)
-        x = self.fc(x)
-        return x
-
-        
 
 # USE global depthwise convolution layer.
 class MobileNet_GDConv(nn.Module):
@@ -46,20 +32,13 @@ class MobileNet_GDConv(nn.Module):
         super(MobileNet_GDConv,self).__init__()
         self.pretrain_net = models.mobilenet_v2(pretrained=False)
         self.base_net = nn.Sequential(*list(self.pretrain_net.children())[:-1])
-        #self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
-        #self.lastconv = nn.Conv2d(1280, out_channels=num_classes, kernel_size=1)
         self.linear7 = ConvBlock(1280, 1280, (7, 7), 1, 0, dw=True, linear=True)
         self.linear1 = ConvBlock(1280, num_classes, 1, 1, 0, linear=True)
-        #self.fc = nn.Linear(1280,num_classes) # resnet18:512; resnet50:2048
     def forward(self,x):
         x = self.base_net(x)
-        #print(x.shape) # [64, 1280, 7, 7]
-        #x = self.avgpool(x)
-        #x = self.lastconv(x)
         x = self.linear7(x)
         x = self.linear1(x)
         x = x.view(x.size(0), -1)
-        #x = self.fc(x)
         return x
 
 # USE global depthwise convolution layer.
@@ -68,19 +47,12 @@ class MobileNet_GDConv_56(nn.Module):
         super(MobileNet_GDConv_56,self).__init__()
         self.pretrain_net = models.mobilenet_v2(pretrained=False)
         self.base_net = nn.Sequential(*list(self.pretrain_net.children())[:-1])
-        #self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
-        #self.lastconv = nn.Conv2d(1280, out_channels=num_classes, kernel_size=1)
         self.linear7 = ConvBlock(1280, 1280, (2, 2), 1, 0, dw=True, linear=True)
         self.linear1 = ConvBlock(1280, num_classes, 1, 1, 0, linear=True)
-        #self.fc = nn.Linear(1280,num_classes) # resnet18:512; resnet50:2048
     def forward(self,x):
         x = self.base_net(x)
-        #print(x.shape) # [64, 1280, 7, 7]
-        #x = self.avgpool(x)
-        #x = self.lastconv(x)
         x = self.linear7(x)
         x = self.linear1(x)
         x = x.view(x.size(0), -1)
-        #x = self.fc(x)
         return x        
         
