@@ -2,8 +2,8 @@
 Implementation of face landmark detection with PyTorch. The model was trained using coordinate-based regression methods. 
 
 * Support 68-point and 39-point landmark inference.
-* Support ONNX inference. 
 * Support different backbone networks.
+* Support ONNX inference. 
 
 ## Inference
 Test on a sample folder and save the landmark detection results.
