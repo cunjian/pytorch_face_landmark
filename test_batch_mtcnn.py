@@ -13,6 +13,7 @@ from models.basenet import ResNet, MobileNet_GDConv
 import matplotlib.pyplot as plt
 from src import detect_faces
 import glob
+import time
 parser = argparse.ArgumentParser(description='PyTorch face landmark')
 # Datasets
 parser.add_argument('-img', '--image', default='face76', type=str)
@@ -96,7 +97,10 @@ if __name__ == '__main__':
             test_face = test_face.reshape((1,) + test_face.shape)
             input = torch.from_numpy(test_face).float()
             input= torch.autograd.Variable(input)
+            start = time.time()
             landmark = model(input).cpu().data.numpy()
+            end = time.time()
+            print('Time: {:.6f}s.'.format(end - start))
             landmark = landmark.reshape(-1,2)
             landmark = new_bbox.reprojectLandmark(landmark)
             img = drawLandmark_multiple(img, new_bbox, landmark)
