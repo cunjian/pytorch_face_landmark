@@ -64,7 +64,7 @@ if __name__ == '__main__':
             y2=face[3]
             w = x2 - x1 + 1
             h = y2 - y1 + 1
-            size = int(max([w, h])*1.1)
+            size = int(min([w, h])*1.2)
             cx = x1 + w//2
             cy = y1 + h//2
             x1 = cx - size//2
