@@ -34,8 +34,6 @@ Optimize with ONNX and test on a camera. The pytorch model has been converted to
 * Profile face alignment on Menpo dataset
 ![img1](https://github.com/cunjian/pytorch_face_landmark/blob/master/imgs/menpo_profile.png)
 
-* With MTCNN as a detector
-![img1](https://github.com/cunjian/pytorch_face_landmark/blob/master/results/12_Group_Team_Organized_Group_12_Group_Team_Organized_Group_12_50.jpg)
 
 ## TODO
 The following features will be added soon. 
