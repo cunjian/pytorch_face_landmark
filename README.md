@@ -18,11 +18,12 @@ Optimize with ONNX and test on a camera. The pytorch model has been converted to
 
 | Algorithms | Common | Challenge | Full Set | CPU Inference (s)
 |:-:|:-:|:-:|:-:|:-:|
-| ResNet18 (224×224) | 3.73 | 7.14 | 4.39 | / |
-| Res2Net50 (224×224) | 3.53 | 7.11 | 4.21 | / |
-| [MobileNetV2 (224×224)](https://drive.google.com/file/d/1w424ZxfBsv7NFwoqynRPNxe43FHABeJV/view?usp=sharing )   | 3.70 | 7.27 | 4.39 | 1.2 |
-| [MobileNetV2 (56×56)](https://drive.google.com/file/d/10DyP9GqAATXFj64MmXlet84Ewb4ryP1K/view?usp=sharing) | 4.50 | 8.50 | 5.27 | 0.01 (onnx) |
-| [MobileNetV2_External (224×224)](https://drive.google.com/file/d/1Le5UdpMkKOTRr1sTp4lwkw8263sbgdSe/view?usp=sharing)  | 3.48 | 6.0 | 3.96 | 1.2 |
+| ResNet18 (224×224)  |3.73 | 7.14 | 4.39 | / |
+| Res2Net50 (224×224)  |3.43 | 6.77 | 4.07 | / |
+| Res2Net50_External (224×224)  |3.30 | 5.92 | 3.81 | / |
+| [MobileNetV2 (224×224)](https://drive.google.com/file/d/1w424ZxfBsv7NFwoqynRPNxe43FHABeJV/view?usp=sharing )    |3.70 | 7.27 | 4.39 | 1.2 |
+| [MobileNetV2 (56×56)](https://drive.google.com/file/d/10DyP9GqAATXFj64MmXlet84Ewb4ryP1K/view?usp=sharing)  |4.50 | 8.50 | 5.27 | 0.01 (onnx) |
+| [MobileNetV2_External (224×224)](https://drive.google.com/file/d/1Le5UdpMkKOTRr1sTp4lwkw8263sbgdSe/view?usp=sharing)   |3.48 | 6.0 | 3.96 | 1.2 |
 
 
 ## Visualization Results
@@ -46,7 +47,7 @@ The following features will be added soon.
 
 
 ## References:
-
+* https://github.com/Res2Net/Res2Net-PretrainedModels
 * https://github.com/lzx1413/pytorch_face_landmark
 * https://github.com/polarisZhao/PFLD-pytorch
 
