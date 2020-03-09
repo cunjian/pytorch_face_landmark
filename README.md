@@ -21,12 +21,12 @@ Optimize with ONNX and test on a camera. The pytorch model has been converted to
 | ResNet18 (224×224)  |3.73 | 7.14 | 4.39 | / |
 | Res2Net50 (224×224)  |3.43 | 6.77 | 4.07 | / |
 | Res2Net50_SE (224×224)  |3.37 | 6.67 | 4.01| / |
-| Res2Net50_External (224×224)  |3.30 | 5.92 | 3.81 | / |
+| Res2Net50_ExternalData (224×224)  |3.30 | 5.92 | 3.81 | / |
 | HRNet_Small (224×224)  | 3.57 | 6.85 | 4.20 | / |
 | [MobileNetV2 (224×224)](https://drive.google.com/file/d/1w424ZxfBsv7NFwoqynRPNxe43FHABeJV/view?usp=sharing )    |3.70 | 7.27 | 4.39 | 1.2 |
 | MobileNetV2_SE (224×224)  | 3.63 | 7.01 | 4.28 | / |
 | [MobileNetV2 (56×56)](https://drive.google.com/file/d/10DyP9GqAATXFj64MmXlet84Ewb4ryP1K/view?usp=sharing)  |4.50 | 8.50 | 5.27 | 0.01 (onnx) |
-| [MobileNetV2_External (224×224)](https://drive.google.com/file/d/1Le5UdpMkKOTRr1sTp4lwkw8263sbgdSe/view?usp=sharing)   |3.48 | 6.0 | 3.96 | 1.2 |
+| [MobileNetV2_ExternalData (224×224)](https://drive.google.com/file/d/1Le5UdpMkKOTRr1sTp4lwkw8263sbgdSe/view?usp=sharing)   |3.48 | 6.0 | 3.96 | 1.2 |
 
 
 ## Visualization Results
@@ -49,7 +49,7 @@ The following features will be added soon.
  
 ## Datasets:
 
-* 300W (68-point), Menpo (68-point), 300-VW (68-point)
+* [300W (68-point)](https://ibug.doc.ic.ac.uk/resources/300-W/), [Menpo (68-point)](https://ibug.doc.ic.ac.uk/resources/2nd-facial-landmark-tracking-competition-menpo-ben/), [300-VW (68-point)](https://ibug.doc.ic.ac.uk/resources/300-VW/)
 * [WFLW (98-point)](https://wywu.github.io/projects/LAB/WFLW.html)
 * [JD (106-point)](https://facial-landmarks-localization-challenge.github.io/)
 
