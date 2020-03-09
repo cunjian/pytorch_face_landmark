@@ -51,7 +51,7 @@ The following features will be added soon.
 
 * 300W (68-point), Menpo (68-point), 300-VW (68-point)
 * [WFLW (98-point)](https://wywu.github.io/projects/LAB/WFLW.html)
-* [JD (106-point)](https://facial-landmarks-localization-challenge.github.io/
+* [JD (106-point)](https://facial-landmarks-localization-challenge.github.io/)
 
 
 ## References:
