@@ -16,17 +16,17 @@ Optimize with ONNX and test on a camera. The pytorch model has been converted to
 
 * Inter-ocular Normalization (ION)
 
-| Algorithms | Common | Challenge | Full Set | CPU Inference (s)
-|:-:|:-:|:-:|:-:|:-:|
-| ResNet18 (224×224)  |3.73 | 7.14 | 4.39 | / |
-| Res2Net50 (224×224)  |3.43 | 6.77 | 4.07 | / |
-| Res2Net50_SE (224×224)  |3.37 | 6.67 | 4.01| / |
-| Res2Net50_ExternalData (224×224)  |3.30 | 5.92 | 3.81 | / |
-| HRNet_Small (224×224)  | 3.57 | 6.85 | 4.20 | / |
-| [MobileNetV2 (224×224)](https://drive.google.com/file/d/1w424ZxfBsv7NFwoqynRPNxe43FHABeJV/view?usp=sharing )    |3.70 | 7.27 | 4.39 | 1.2 |
-| MobileNetV2_SE (224×224)  | 3.63 | 7.01 | 4.28 | / |
-| [MobileNetV2 (56×56)](https://drive.google.com/file/d/10DyP9GqAATXFj64MmXlet84Ewb4ryP1K/view?usp=sharing)  |4.50 | 8.50 | 5.27 | 0.01 (onnx) |
-| [MobileNetV2_ExternalData (224×224)](https://drive.google.com/file/d/1Le5UdpMkKOTRr1sTp4lwkw8263sbgdSe/view?usp=sharing)   |3.48 | 6.0 | 3.96 | 1.2 |
+| Algorithms | Common | Challenge | Full Set | Param # (M) | CPU Inference (s) |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| ResNet18 (224×224)  |3.73 | 7.14 | 4.39 | 11.76 | /| 
+| Res2Net50_v1b (224×224)  |3.43 | 6.77 | 4.07 | 26.00 | /|
+| Res2Net50_v1b_SE (224×224)  |3.37 | 6.67 | 4.01| 27.05 |/ |
+| Res2Net50_v1b_ExternalData (224×224)  |3.30 | 5.92 | 3.81 | 26.00 | /|
+| HRNet_w18_small_v2 (224×224)  | 3.57 | 6.85 | 4.20 | 13.83 | /|
+| [MobileNetV2 (224×224)](https://drive.google.com/file/d/1w424ZxfBsv7NFwoqynRPNxe43FHABeJV/view?usp=sharing )    |3.70 | 7.27 | 4.39 | 3.74 | 1.2|
+| MobileNetV2_SE (224×224)  | 3.63 | 7.01 | 4.28 | 4.15 | /|
+| [MobileNetV2 (56×56)](https://drive.google.com/file/d/10DyP9GqAATXFj64MmXlet84Ewb4ryP1K/view?usp=sharing)  |4.50 | 8.50 | 5.27 | 3.74 | 0.01 (onnx)|
+| [MobileNetV2_ExternalData (224×224)](https://drive.google.com/file/d/1Le5UdpMkKOTRr1sTp4lwkw8263sbgdSe/view?usp=sharing)   |3.48 | 6.0 | 3.96 | 3.74 | 1.2|
 
 
 ## Visualization Results
