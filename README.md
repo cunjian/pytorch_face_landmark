@@ -9,8 +9,11 @@ Implementation of face landmark detection with PyTorch. The model was trained us
 Test on a sample folder and save the landmark detection results.
 > python3 -W ignore test_batch_mtcnn.py
 
-Optimize with ONNX and test on a camera. The pytorch model has been converted to ONNX for fast inference.
+Optimize with ONNX and test on a camera with MTCNN as a face detector. 
 > python3 -W ignore test_camera_mtcnn_onnx.py
+
+Optimize with ONNX and test on a camera with a lightweight face detector. It can achieve real-time speed on CPU.
+> python3 test_camera_light_onnx.py
 
 ## Benchmark Results on 300W
 
