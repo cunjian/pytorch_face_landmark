@@ -20,7 +20,7 @@ Optimize with ONNX and test on a camera with a lightweight face detector. It can
 * Inter-ocular Normalization (ION)
 
 | Algorithms | Common | Challenge | Full Set | Param # (M) | 
-|:-:|:-:|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|:-:|:-:|
 | ResNet18 (224×224)  |3.73 | 7.14 | 4.39 | 11.76 | 
 | Res2Net50_v1b (224×224)  |3.43 | 6.77 | 4.07 | 26.00 | 
 | Res2Net50_v1b_SE (224×224)  |3.37 | 6.67 | 4.01| 27.05 |
@@ -28,6 +28,7 @@ Optimize with ONNX and test on a camera with a lightweight face detector. It can
 | HRNet_w18_small_v2 (224×224)  | 3.57 | 6.85 | 4.20 | 13.83 | 
 
 * Inter-ocular Normalization (ION) with Lightweight Models
+
 | Algorithms | Common | Challenge | Full Set | Param # (M) | CPU Inference (s) |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 | [MobileNetV2 (224×224)](https://drive.google.com/file/d/1w424ZxfBsv7NFwoqynRPNxe43FHABeJV/view?usp=sharing )    |3.70 | 7.27 | 4.39 | 3.74 | 1.2|
