@@ -44,7 +44,7 @@ if __name__ == '__main__':
     out_size = 224
     model = load_model()
     model = model.eval()
-    filenames=glob.glob("samples/12--Group/*.jpg")
+    filenames=glob.glob("samples/12--Group/*.png")
     for imgname in filenames:
         print(imgname)
         img = cv2.imread(imgname)
