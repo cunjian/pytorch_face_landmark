@@ -37,7 +37,7 @@ Optimize with ONNX and test on a camera with a lightweight face detector. It can
 | [MobileNetV2_ExternalData (224×224)](https://drive.google.com/file/d/1Le5UdpMkKOTRr1sTp4lwkw8263sbgdSe/view?usp=sharing)   |3.48 | 6.0 | 3.96 | 3.74 | 1.2|
 | [MobileNetV2 (56×56)](https://drive.google.com/file/d/10DyP9GqAATXFj64MmXlet84Ewb4ryP1K/view?usp=sharing)  |4.50 | 8.50 | 5.27 | 3.74 | 0.01 ([onnx](https://drive.google.com/file/d/1UkJfsY1Y00IhxuGS-mEZkfKC3ekfFI3G/view?usp=sharing))|
 | [MobileNetV2_SE_ExternalData (56×56)](https://drive.google.com/file/d/1BcfUVGPHlILLlWN4h6E9lbwtz85PUbuW/view?usp=sharing)  |4.10 | 6.89 | 4.64 | 4.10 | 0.01 ([onnx](https://drive.google.com/file/d/1Kw-OKKAzoPxg1hVMvdtCbnCw2GWNC85q/view?usp=sharing))|
-| [PFLD (112×112)]  |3.80 | 6.58 | 4.33 | 1.25 | 0.16 ([onnx](https://drive.google.com/file/d/1tPpRxRihp5geLf3d99vPlzPm9eP846uH/view?usp=sharing))|
+| PFLD (112×112)  |3.80 | 6.58 | 4.33 | 1.25 | 0.16 ([onnx](https://drive.google.com/file/d/1tPpRxRihp5geLf3d99vPlzPm9eP846uH/view?usp=sharing))|
 > Note: SE (squeeze-and-excitation module), RE (random erasing module).
 
 ## Visualization Results
