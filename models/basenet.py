@@ -26,7 +26,7 @@ class ConvBlock(nn.Module):
             return self.prelu(x)
             
 
-# USE global depthwise convolution layer.
+# USE global depthwise convolution layer. Compatible with MobileNetV2 (224×224), MobileNetV2_ExternalData (224×224)
 class MobileNet_GDConv(nn.Module):
     def __init__(self,num_classes):
         super(MobileNet_GDConv,self).__init__()
@@ -41,7 +41,7 @@ class MobileNet_GDConv(nn.Module):
         x = x.view(x.size(0), -1)
         return x
 
-# USE global depthwise convolution layer.
+# USE global depthwise convolution layer. Compatible with MobileNetV2 (56×56)
 class MobileNet_GDConv_56(nn.Module):
     def __init__(self,num_classes):
         super(MobileNet_GDConv_56,self).__init__()
