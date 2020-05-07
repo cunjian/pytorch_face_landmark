@@ -26,6 +26,28 @@ class ConvBlock(nn.Module):
             return self.prelu(x)
             
 
+# SE module
+# https://github.com/wujiyang/Face_Pytorch/blob/master/backbone/cbam.py
+class SEModule(nn.Module):
+    '''Squeeze and Excitation Module'''
+    def __init__(self, channels, reduction):
+        super(SEModule, self).__init__()
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)
+        self.fc1 = nn.Conv2d(channels, channels // reduction, kernel_size=1, padding=0, bias=False)
+        self.relu = nn.ReLU(inplace=True)
+        self.fc2 = nn.Conv2d(channels // reduction, channels, kernel_size=1, padding=0, bias=False)
+        self.sigmoid = nn.Sigmoid()
+
+    def forward(self, x):
+        input = x
+        x = self.avg_pool(x)
+        x = self.fc1(x)
+        x = self.relu(x)
+        x = self.fc2(x)
+        x = self.sigmoid(x)
+
+        return input * x
+        
 # USE global depthwise convolution layer. Compatible with MobileNetV2 (224×224), MobileNetV2_ExternalData (224×224)
 class MobileNet_GDConv(nn.Module):
     def __init__(self,num_classes):
