@@ -41,6 +41,7 @@ Optimize with ONNX and test on a camera with a lightweight face detector. It can
 > Note: SE (squeeze-and-excitation module), RE (random erasing module).
 
 * Heatmap Inference 
+
 | Algorithms | Common | Challenge | Full Set | Param # (M) | 
 |:-:|:-:|:-:|:-:|:-:|
 | Hourglass2  |4.22 | 6.64 | 4.69 | 8.73 | 
