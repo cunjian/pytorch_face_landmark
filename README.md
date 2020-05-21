@@ -4,6 +4,7 @@ Implementation of face landmark detection with PyTorch. The model was trained us
 * Support 68-point and 39-point landmark inference.
 * Support different backbone networks.
 * Support ONNX inference. 
+* Support heatmap-based inference.
 
 ## Inference
 Test on a sample folder and save the landmark detection results.
