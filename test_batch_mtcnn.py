@@ -7,7 +7,6 @@ import torch
 import os
 import cv2
 import numpy as np
-#import dlib
 from common.utils import BBox,drawLandmark,drawLandmark_multiple
 from models.basenet import MobileNet_GDConv
 import matplotlib.pyplot as plt
@@ -16,9 +15,6 @@ import glob
 import time
 parser = argparse.ArgumentParser(description='PyTorch face landmark')
 # Datasets
-parser.add_argument('-img', '--image', default='face76', type=str)
-parser.add_argument('-j', '--workers', default=8, type=int, metavar='N',
-                    help='number of data loading workers (default: 4)')
 parser.add_argument('--gpu_id', default='0,1', type=str,
                     help='id(s) for CUDA_VISIBLE_DEVICES')
 parser.add_argument('-c', '--checkpoint', default='checkpoint/mobilenet_224_model_best_gdconv.pth.tar', type=str, metavar='PATH',
@@ -44,7 +40,7 @@ if __name__ == '__main__':
     out_size = 224
     model = load_model()
     model = model.eval()
-    filenames=glob.glob("samples/12--Group/*.png")
+    filenames=glob.glob("samples/12--Group/*.jpg")
     for imgname in filenames:
         print(imgname)
         img = cv2.imread(imgname)
