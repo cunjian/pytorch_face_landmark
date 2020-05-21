@@ -40,7 +40,7 @@ Optimize with ONNX and test on a camera with a lightweight face detector. It can
 | PFLD_ExternalData (112×112)  | 3.57 | 6.23 | 4.08 | 1.25 | 0.16 ([onnx](https://drive.google.com/file/d/1zLC2mPtv4vfQZjkzj21F4OJw16vdyk_k/view?usp=sharing))|
 > Note: SE (squeeze-and-excitation module), RE (random erasing module).
 
-* Heatmap Inference 
+* Heatmap Inference (still under test)
 
 | Algorithms | Common | Challenge | Full Set | Param # (M) | 
 |:-:|:-:|:-:|:-:|:-:|
