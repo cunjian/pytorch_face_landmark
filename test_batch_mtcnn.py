@@ -15,9 +15,9 @@ import glob
 import time
 parser = argparse.ArgumentParser(description='PyTorch face landmark')
 # Datasets
-parser.add_argument('--gpu_id', default='0,1', type=str,
-                    help='id(s) for CUDA_VISIBLE_DEVICES')
-parser.add_argument('-c', '--checkpoint', default='checkpoint/mobilenet_224_model_best_gdconv.pth.tar', type=str, metavar='PATH',
+parser.add_argument('--backbone', default='PFLD', type=str,
+                    help='choose which backbone network to use')
+parser.add_argument('-c', '--checkpoint', default='checkpoint/pfld_model_best.pth.tar', type=str, metavar='PATH',
                     help='path to save checkpoint (default: checkpoint)')
 
 args = parser.parse_args()
@@ -30,14 +30,20 @@ else:
     map_location='cpu'
 
 def load_model():
-    model = MobileNet_GDConv(136)
+    if args.backbone=='MobileNet':
+        model = MobileNet_GDConv(136)
+    else:
+        model = PFLDInference()     
     #model = torch.nn.DataParallel(model)
     checkpoint = torch.load(args.checkpoint, map_location=map_location)
     model.load_state_dict(checkpoint['state_dict'])
     return model
 
 if __name__ == '__main__':
-    out_size = 224
+    if args.backbone=='MobileNet':
+        out_size = 224
+    else:
+        out_size = 112    
     model = load_model()
     model = model.eval()
     filenames=glob.glob("samples/12--Group/*.jpg")
@@ -82,11 +88,11 @@ if __name__ == '__main__':
             cropped=img[new_bbox.top:new_bbox.bottom,new_bbox.left:new_bbox.right]
             if (dx > 0 or dy > 0 or edx > 0 or edy > 0):
                 cropped = cv2.copyMakeBorder(cropped, int(dy), int(edy), int(dx), int(edx), cv2.BORDER_CONSTANT, 0)            
-            cropped_face = cv2.resize(cropped, (224, 224))
+            cropped_face = cv2.resize(cropped, (out_size, out_size))
 
             if cropped_face.shape[0]<=0 or cropped_face.shape[1]<=0:
                 continue
-            test_face = cv2.resize(cropped_face,(224,224))
+            test_face = cropped_face.copy()
             test_face = test_face/255.0
             test_face = (test_face-mean)/std
             test_face = test_face.transpose((2, 0, 1))

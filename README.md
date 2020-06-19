@@ -68,9 +68,9 @@ The following features will be added soon.
   * [ ] Support for the 106 point detection
   * [ ] Support for heatmap-based inferences
  
-## Datasets:
+## Public Datasets:
 
-* [300W (68-point)](https://ibug.doc.ic.ac.uk/resources/300-W/), [Menpo (68-point)](https://ibug.doc.ic.ac.uk/resources/2nd-facial-landmark-tracking-competition-menpo-ben/), [300-VW (68-point)](https://ibug.doc.ic.ac.uk/resources/300-VW/)
+* 68-point: [300W](https://ibug.doc.ic.ac.uk/resources/300-W/), [Menpo](https://ibug.doc.ic.ac.uk/resources/2nd-facial-landmark-tracking-competition-menpo-ben/), [300-VW](https://ibug.doc.ic.ac.uk/resources/300-VW/), [300W-LP](http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/3DDFA/main.htm), [300W-Style](https://github.com/D-X-Y/landmark-detection/tree/master/SAN)
 * [WFLW (98-point)](https://wywu.github.io/projects/LAB/WFLW.html)
 * [JD (106-point)](https://facial-landmarks-localization-challenge.github.io/)
 
