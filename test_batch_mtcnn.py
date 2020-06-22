@@ -15,9 +15,7 @@ import glob
 import time
 parser = argparse.ArgumentParser(description='PyTorch face landmark')
 # Datasets
-parser.add_argument('--backbone', default='PFLD', type=str,
-                    help='choose which backbone network to use')
-parser.add_argument('-c', '--checkpoint', default='checkpoint/pfld_model_best.pth.tar', type=str, metavar='PATH',
+parser.add_argument('-c', '--checkpoint', default='checkpoint/mobilenet_224_model_best_gdconv_external.pth.tar', type=str, metavar='PATH',
                     help='path to save checkpoint (default: checkpoint)')
 
 args = parser.parse_args()
@@ -30,20 +28,14 @@ else:
     map_location='cpu'
 
 def load_model():
-    if args.backbone=='MobileNet':
-        model = MobileNet_GDConv(136)
-    else:
-        model = PFLDInference()     
-    #model = torch.nn.DataParallel(model)
+    model = MobileNet_GDConv(136)    
+    model = torch.nn.DataParallel(model)
     checkpoint = torch.load(args.checkpoint, map_location=map_location)
     model.load_state_dict(checkpoint['state_dict'])
     return model
 
 if __name__ == '__main__':
-    if args.backbone=='MobileNet':
-        out_size = 224
-    else:
-        out_size = 112    
+    out_size = 224   
     model = load_model()
     model = model.eval()
     filenames=glob.glob("samples/12--Group/*.jpg")
@@ -108,4 +100,3 @@ if __name__ == '__main__':
             img = drawLandmark_multiple(img, new_bbox, landmark)
   
         cv2.imwrite(os.path.join('results',os.path.basename(imgname)),img)
-
