@@ -14,7 +14,7 @@ from src import detect_faces
 import glob
 import time
 parser = argparse.ArgumentParser(description='PyTorch face landmark')
-# Datasets
+# Download from https://drive.google.com/file/d/1Le5UdpMkKOTRr1sTp4lwkw8263sbgdSe/view
 parser.add_argument('-c', '--checkpoint', default='checkpoint/mobilenet_224_model_best_gdconv_external.pth.tar', type=str, metavar='PATH',
                     help='path to save checkpoint (default: checkpoint)')
 
