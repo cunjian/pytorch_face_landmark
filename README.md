@@ -40,6 +40,7 @@ Optimize with ONNX and test on a camera with a lightweight face detector. It can
 | [MobileNetV2_SE_ExternalData (56×56)](https://drive.google.com/file/d/1BcfUVGPHlILLlWN4h6E9lbwtz85PUbuW/view?usp=sharing)  |4.10 | 6.89 | 4.64 | 4.10 | 0.01 ([onnx](https://drive.google.com/file/d/1Kw-OKKAzoPxg1hVMvdtCbnCw2GWNC85q/view?usp=sharing))|
 | PFLD_ExternalData (112×112)  | 3.59 | 6.22 | 4.09 | 0.73 | 0.01 ([onnx](https://drive.google.com/file/d/1me3-AC6rVcvVyyxNP7FxqdAN5SoDTj95/view?usp=sharing))|
 | MobileFaceNet_ExternalData (112×112)  | 3.47 | 6.08 | 3.97 | 1.01 | / |
+| MobileFaceNet_SE_ExternalData (112×112)  | 3.45 | 5.96 | 3.94 | 1.03 | / |
 
 > Note: SE (squeeze-and-excitation module), RE (random erasing module).
 
@@ -47,7 +48,7 @@ Optimize with ONNX and test on a camera with a lightweight face detector. It can
 
 | Algorithms | Common | Challenge | Full Set | Param # (M) | 
 |:-:|:-:|:-:|:-:|:-:|
-| Hourglass2  |4.22 | 6.64 | 4.69 | 8.73 | 
+| Hourglass2  | 3.06 | 5.54 | 3.55 | 8.73 | 
 
 ## Visualization Results
 * Face alignment on 300W dataset
