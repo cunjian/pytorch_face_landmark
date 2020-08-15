@@ -67,8 +67,7 @@ Optimize with ONNX and test on a camera with a lightweight face detector. It can
 
 * Face alignment in wild
 
-![](https://github.com/cunjian/pytorch_face_landmark/blob/master/results/12_Group_Group_12_Group_Group_12_51.jpg&s=200)
-
+<img src="https://github.com/cunjian/pytorch_face_landmark/blob/master/results/12_Group_Group_12_Group_Group_12_51.jpg" width="400" height="790">
 
 
 ## TODO
