@@ -7,11 +7,12 @@ Implementation of face landmark detection with PyTorch. The models were trained 
 * Support heatmap-based inference.
 
 ## Inference
-Test on a sample folder and save the landmark detection results.
-> python3 -W ignore test_batch_mtcnn.py
+Test on a sample folder and save the landmark detection results. Support different backbones.
+> python3 test_batch_mtcnn_multiple.py --backbone MobileNet
+> python3 test_batch_mtcnn_multiple.py --backbone PFLD
 
 Optimize with ONNX and test on a camera with MTCNN as a face detector. 
-> python3 -W ignore test_camera_mtcnn_onnx.py
+> python3 test_camera_mtcnn_onnx.py
 
 Optimize with ONNX and test on a camera with a lightweight face detector. It can achieve **real-time speed on CPU**.
 > python3 test_camera_light_onnx.py
@@ -38,7 +39,7 @@ Optimize with ONNX and test on a camera with a lightweight face detector. It can
 | [MobileNetV2_ExternalData (224×224)](https://drive.google.com/file/d/1Le5UdpMkKOTRr1sTp4lwkw8263sbgdSe/view?usp=sharing)   |3.48 | 6.0 | 3.96 | 3.74 | 1.2|
 | [MobileNetV2 (56×56)](https://drive.google.com/file/d/10DyP9GqAATXFj64MmXlet84Ewb4ryP1K/view?usp=sharing)  |4.50 | 8.50 | 5.27 | 3.74 | 0.01 ([onnx](https://drive.google.com/file/d/1UkJfsY1Y00IhxuGS-mEZkfKC3ekfFI3G/view?usp=sharing))|
 | [MobileNetV2_SE_ExternalData (56×56)](https://drive.google.com/file/d/1BcfUVGPHlILLlWN4h6E9lbwtz85PUbuW/view?usp=sharing)  |4.10 | 6.89 | 4.64 | 4.10 | 0.01 ([onnx](https://drive.google.com/file/d/1Kw-OKKAzoPxg1hVMvdtCbnCw2GWNC85q/view?usp=sharing))|
-| PFLD_ExternalData (112×112)  | 3.59 | 6.22 | 4.09 | 0.73 | 0.01 ([onnx](https://drive.google.com/file/d/1me3-AC6rVcvVyyxNP7FxqdAN5SoDTj95/view?usp=sharing))|
+| [PFLD_ExternalData (112×112)](https://drive.google.com/file/d/1zgQdcVuuHS73jiNmqPToOPDS9PjCl9cy/view?usp=sharing)  | 3.59 | 6.22 | 4.09 | 0.73 | 0.01 ([onnx](https://drive.google.com/file/d/1me3-AC6rVcvVyyxNP7FxqdAN5SoDTj95/view?usp=sharing))|
 | MobileFaceNet_ExternalData (112×112)  | 3.47 | 6.08 | 3.97 | 1.01 | / |
 | MobileFaceNet_SE_ExternalData (112×112)  | 3.45 | 5.96 | 3.94 | 1.03 | / |
 
