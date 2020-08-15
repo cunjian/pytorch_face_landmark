@@ -65,9 +65,9 @@ Optimize with ONNX and test on a camera with a lightweight face detector. It can
 
 ![img1](https://github.com/cunjian/pytorch_face_landmark/blob/master/imgs/menpo_profile.png)
 
-* Face alignment on wild dataset
+* Face alignment in wild
 
-![img1](https://github.com/cunjian/pytorch_face_landmark/blob/master/results/12_Group_Group_12_Group_Group_12_51.jpg)
+![img1](https://github.com/cunjian/pytorch_face_landmark/blob/master/results/12_Group_Group_12_Group_Group_12_51.jpg =250x250)
 
 
 
