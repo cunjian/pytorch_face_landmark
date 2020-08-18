@@ -1,5 +1,5 @@
 # Pytorch Face Landmark Detection
-Implementation of face landmark detection with PyTorch. The models were trained using coordinate-based and heatmap-based regression methods. A [video demo](https://lnkd.in/eH27JcP) was displayed here. 
+Implementation of face landmark detection with PyTorch. The models were trained using coordinate-based and heatmap-based regression methods. A [video demo](https://lnkd.in/eH27JcP) and [image detection](https://github.com/cunjian/pytorch_face_landmark/tree/master/results) results were displayed here. 
 
 * Support 68-point and 39-point landmark inference.
 * Support different backbone networks.
