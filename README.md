@@ -8,9 +8,7 @@ Implementation of face landmark detection with PyTorch. The models were trained 
 
 ## Inference
 Test on a sample folder and save the landmark detection results. Support different backbones.
-> python3 test_batch_mtcnn_multiple.py --backbone MobileNet
-
-> python3 test_batch_mtcnn_multiple.py --backbone PFLD
+> python3 test_batch_mtcnn_multiple.py --backbone MobileNet or PFLD or MobileFaceNet
 
 Optimize with ONNX and test on a camera with MTCNN as a face detector. 
 > python3 test_camera_mtcnn_onnx.py

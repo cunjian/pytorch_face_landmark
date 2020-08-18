@@ -1,6 +1,7 @@
 # Face alignment demo
 # Uses MTCNN as a face detector; Support different backbones.
 # Cunjian Chen (ccunjian@gmail.com), Aug 2020
+
 from __future__ import division
 import argparse
 import torch
@@ -10,6 +11,8 @@ import numpy as np
 from common.utils import BBox,drawLandmark,drawLandmark_multiple
 from models.basenet import MobileNet_GDConv
 from models.pfld_compressed import PFLDInference
+from models.mobilefacenet import MobileFaceNet
+
 
 import matplotlib.pyplot as plt
 from src import detect_faces
@@ -18,7 +21,7 @@ import time
 parser = argparse.ArgumentParser(description='PyTorch face landmark')
 # Datasets
 parser.add_argument('--backbone', default='PFLD', type=str,
-                    help='choose which backbone network to use')
+                    help='choose which backbone network to use: PFLD, MobileFaceNet, MobileNet')
 
 args = parser.parse_args()
 mean = np.asarray([ 0.485, 0.456, 0.406 ])
@@ -40,7 +43,12 @@ def load_model():
         model = PFLDInference() 
         # download from https://drive.google.com/file/d/1zgQdcVuuHS73jiNmqPToOPDS9PjCl9cy/view?usp=sharing
         checkpoint = torch.load('checkpoint/pfld_model_best.pth.tar', map_location=map_location)
-        print('Use PFLD as backbone')  
+        print('Use PFLD as backbone') 
+        # download from https://drive.google.com/file/d/1_tWbsAnnfmlKddsrxX85WMiY9H-BuxL-/view?usp=sharing
+    elif args.backbone=='MobileFaceNet':
+        model = MobileFaceNet([112, 112],136)   
+        checkpoint = torch.load('checkpoint/mobilefacenet_model_best.pth.tar', map_location=map_location)      
+        print('Use MobileFaceNet as backbone')         
     else:
         print('Error: not suppored backbone')    
     model.load_state_dict(checkpoint['state_dict'])
