@@ -41,10 +41,10 @@ def load_model():
         print('Use MobileNet as backbone')
     elif args.backbone=='PFLD':
         model = PFLDInference() 
-        # download from https://drive.google.com/file/d/1zgQdcVuuHS73jiNmqPToOPDS9PjCl9cy/view?usp=sharing
+        # download from https://drive.google.com/file/d/1gjgtm6qaBQJ_EY7lQfQj3EuMJCVg9lVu/view?usp=sharing
         checkpoint = torch.load('checkpoint/pfld_model_best.pth.tar', map_location=map_location)
         print('Use PFLD as backbone') 
-        # download from https://drive.google.com/file/d/1_tWbsAnnfmlKddsrxX85WMiY9H-BuxL-/view?usp=sharing
+        # download from https://drive.google.com/file/d/1T8J73UTcB25BEJ_ObAJczCkyGKW5VaeY/view?usp=sharing
     elif args.backbone=='MobileFaceNet':
         model = MobileFaceNet([112, 112],136)   
         checkpoint = torch.load('checkpoint/mobilefacenet_model_best.pth.tar', map_location=map_location)      
