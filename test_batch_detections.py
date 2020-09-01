@@ -24,7 +24,7 @@ parser = argparse.ArgumentParser(description='PyTorch face landmark')
 parser.add_argument('--backbone', default='PFLD', type=str,
                     help='choose which backbone network to use: PFLD, MobileFaceNet, MobileNet')
 parser.add_argument('--detector', default='MTCNN', type=str,
-                    help='choose which detector to use')
+                    help='choose which detector to use: MTCNN or FaceBoxes')
 
 args = parser.parse_args()
 mean = np.asarray([ 0.485, 0.456, 0.406 ])
