@@ -1,5 +1,6 @@
 # Face alignment demo
-# Uses MTCNN as a face detector; Support different backbones.
+# Uses MTCNN or FaceBoxes as a face detector;
+# Support different backbones, include PFLD, MobileFaceNet, MobileNet;
 # Cunjian Chen (ccunjian@gmail.com), Aug 2020
 
 from __future__ import division
@@ -12,8 +13,8 @@ from common.utils import BBox,drawLandmark,drawLandmark_multiple
 from models.basenet import MobileNet_GDConv
 from models.pfld_compressed import PFLDInference
 from models.mobilefacenet import MobileFaceNet
-
-
+from FaceBoxes import FaceBoxes
+from PIL import Image
 import matplotlib.pyplot as plt
 from src import detect_faces
 import glob
@@ -22,6 +23,8 @@ parser = argparse.ArgumentParser(description='PyTorch face landmark')
 # Datasets
 parser.add_argument('--backbone', default='PFLD', type=str,
                     help='choose which backbone network to use: PFLD, MobileFaceNet, MobileNet')
+parser.add_argument('--detector', default='MTCNN', type=str,
+                    help='choose which detector to use')
 
 args = parser.parse_args()
 mean = np.asarray([ 0.485, 0.456, 0.406 ])
@@ -66,10 +69,15 @@ if __name__ == '__main__':
         print(imgname)
         img = cv2.imread(imgname)
         height,width,_=img.shape
-        # perform face detection using MTCNN
-        from PIL import Image
-        image = Image.open(imgname)
-        faces, landmarks = detect_faces(image)
+        if args.detector=='MTCNN':
+            # perform face detection using MTCNN
+            image = Image.open(imgname)
+            faces, landmarks = detect_faces(image)
+        elif args.detector=='FaceBoxes':
+            face_boxes = FaceBoxes()
+            faces = face_boxes(img)
+        else:
+            print('Error: not suppored detector')        
         ratio=0
         if len(faces)==0:
             print('NO face is detected!')
