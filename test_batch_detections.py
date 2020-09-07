@@ -14,6 +14,7 @@ from models.basenet import MobileNet_GDConv
 from models.pfld_compressed import PFLDInference
 from models.mobilefacenet import MobileFaceNet
 from FaceBoxes import FaceBoxes
+from Retinaface import Retinaface
 from PIL import Image
 import matplotlib.pyplot as plt
 from src import detect_faces
@@ -22,9 +23,9 @@ import time
 parser = argparse.ArgumentParser(description='PyTorch face landmark')
 # Datasets
 parser.add_argument('--backbone', default='PFLD', type=str,
-                    help='choose which backbone network to use: PFLD, MobileFaceNet, MobileNet')
+                    help='choose which backbone network to use: MobileNet, PFLD, MobileFaceNet')
 parser.add_argument('--detector', default='MTCNN', type=str,
-                    help='choose which detector to use: MTCNN or FaceBoxes')
+                    help='choose which face detector to use: MTCNN, FaceBoxes, Retinaface')
 
 args = parser.parse_args()
 mean = np.asarray([ 0.485, 0.456, 0.406 ])
@@ -76,6 +77,9 @@ if __name__ == '__main__':
         elif args.detector=='FaceBoxes':
             face_boxes = FaceBoxes()
             faces = face_boxes(img)
+        elif args.detector=='Retinaface':
+            retinaface=Retinaface.Retinaface()    
+            faces = retinaface(img)            
         else:
             print('Error: not suppored detector')        
         ratio=0

@@ -1,14 +1,14 @@
 # Pytorch Face Landmark Detection
-Implementation of face landmark detection with PyTorch. The models were trained using coordinate-based and heatmap-based regression methods. A [video demo](https://lnkd.in/eH27JcP) and [image detection](https://github.com/cunjian/pytorch_face_landmark/tree/master/results) results were displayed here. 
+Implementation of face landmark detection with PyTorch. The models were trained using coordinate-based or heatmap-based regression methods. Different face detetors were supported. A [video demo](https://lnkd.in/eH27JcP) and [image detection](https://github.com/cunjian/pytorch_face_landmark/tree/master/results) results were displayed here. 
 
 * Support 68-point and 39-point landmark inference.
-* Support different backbone networks.
+* Support different backbone networks and face detectors.
 * Support ONNX inference. 
 * Support heatmap-based inference.
 
 ## Inference
 Test on a sample folder and save the landmark detection results. Support different backbones and face detectors.
-> python3 test_batch_detections.py --backbone MobileNet or PFLD or MobileFaceNet --detector FaceBoxes or MTCNN
+> python3 test_batch_detections.py --backbone MobileNet/PFLD/MobileFaceNet --detector MTCNN/FaceBoxes/Retinaface
 
 Optimize with ONNX and test on a camera with MTCNN as a face detector. 
 > python3 test_camera_mtcnn_onnx.py
@@ -78,8 +78,7 @@ The following features will be added soon.
 
 
 ## References:
-* https://github.com/rwightman/pytorch-image-models
-* https://github.com/Res2Net/Res2Net-PretrainedModels
+* https://github.com/biubug6/Pytorch_Retinaface
 * https://github.com/cleardusk/3DDFA_V2
 * https://github.com/lzx1413/pytorch_face_landmark
 * https://github.com/polarisZhao/PFLD-pytorch
