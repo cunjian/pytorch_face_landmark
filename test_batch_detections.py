@@ -17,7 +17,7 @@ from FaceBoxes import FaceBoxes
 from Retinaface import Retinaface
 from PIL import Image
 import matplotlib.pyplot as plt
-from src import detect_faces
+from MTCNN import detect_faces
 import glob
 import time
 parser = argparse.ArgumentParser(description='PyTorch face landmark')
