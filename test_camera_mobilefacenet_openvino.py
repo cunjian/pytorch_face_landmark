@@ -1,7 +1,8 @@
 """
-This code uses the onnx model to detect faces from live video or cameras.
-Use a much faster face detector: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
-Date: 3/26/2020 by Cunjian Chen (ccunjian@gmail.com)
+This code performs a real-time face and landmark detections
+1. Use a light-weight face detector (ONNX): https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
+2. Use mobilefacenet as a light-weight landmark detector (OpenVINO: 10 times faster than ONNX)
+Date: 09/27/2020 by Cunjian Chen (ccunjian@gmail.com)
 """
 import time
 import cv2
@@ -9,27 +10,34 @@ import numpy as np
 import onnx
 import vision.utils.box_utils_numpy as box_utils
 from caffe2.python.onnx import backend
+import os
 
 # onnx runtime
 import onnxruntime as ort
+import onnx
+import onnxruntime
 
 # import libraries for landmark
 from common.utils import BBox,drawLandmark,drawLandmark_multiple
 from PIL import Image
 import torchvision.transforms as transforms
 
+# import openvino 
+from openvino.inference_engine import IENetwork, IEPlugin, IECore
+ie = IECore()
+model_bin = os.path.splitext("openvino/mobilefacenet.xml")[0] + ".bin"
+net = ie.read_network(model="openvino/mobilefacenet.xml", weights=model_bin)
+input_blob = next(iter(net.inputs))
+#plugin = IEPlugin(device="CPU")
+#exec_net = plugin.load(network=net)
+exec_net = ie.load_network(network=net,device_name="CPU")
+
 # setup the parameters
 resize = transforms.Resize([112, 112])
 to_tensor = transforms.ToTensor()
+mean = np.asarray([ 0.485, 0.456, 0.406 ])
+std = np.asarray([ 0.229, 0.224, 0.225 ])
 
-# import the landmark detection models
-import onnx
-import onnxruntime
-onnx_model_landmark = onnx.load("onnx/pfld.onnx")
-onnx.checker.check_model(onnx_model_landmark)
-ort_session_landmark = onnxruntime.InferenceSession("onnx/pfld.onnx")
-def to_numpy(tensor):
-    return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
 
 # face detection setting
 def predict(width, height, confidences, boxes, prob_threshold, iou_threshold=0.3, top_k=-1):
@@ -103,7 +111,7 @@ while True:
 
         #cv2.rectangle(orig_image, (box[0], box[1]), (box[2], box[3]), (255, 255, 0), 4)
         # perform landmark detection
-        out_size = 56
+        out_size = 112
         img=orig_image.copy()
         height,width,_=img.shape
         x1=box[0]
@@ -112,7 +120,7 @@ while True:
         y2=box[3]
         w = x2 - x1 + 1
         h = y2 - y1 + 1
-        size = int(max([w, h])*1.1)
+        size = int(max([w, h]))
         cx = x1 + w//2
         cy = y1 + h//2
         x1 = cx - size//2
@@ -137,19 +145,18 @@ while True:
 
         if cropped_face.shape[0]<=0 or cropped_face.shape[1]<=0:
             continue
-        cropped_face = cv2.cvtColor(cropped_face, cv2.COLOR_BGR2RGB)    
-        cropped_face = Image.fromarray(cropped_face)
-        test_face = resize(cropped_face)
-        test_face = to_tensor(test_face)
-        #test_face = normalize(test_face)
-        test_face.unsqueeze_(0)
-
+        test_face = cropped_face.copy()   
+        test_face = test_face/255.0
+        test_face = test_face.transpose((2, 0, 1))
+        test_face = test_face.reshape((1,) + test_face.shape)  
+        # OpenVINO Inference
         start = time.time()             
-        ort_inputs = {ort_session.get_inputs()[0].name: to_numpy(test_face)}
-        ort_outs = ort_session_landmark.run(None, ort_inputs)
+        outputs = exec_net.infer(inputs={input_blob: test_face})
+        key = list(outputs.keys())[0]
+        output = outputs[key]
+        landmark=output[0].reshape(-1,2)
         end = time.time()
         print('Time: {:.6f}s.'.format(end - start))
-        landmark = ort_outs[0]
         landmark = landmark.reshape(-1,2)
         landmark = new_bbox.reprojectLandmark(landmark)
         orig_image = drawLandmark_multiple(orig_image, new_bbox, landmark)

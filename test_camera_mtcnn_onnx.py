@@ -49,12 +49,12 @@ def load_model():
 if __name__ == '__main__':
     import onnx
 
-    onnx_model = onnx.load("landmark_detection_56_se_external.onnx")
+    onnx_model = onnx.load("onnx/landmark_detection_56_se_external.onnx")
     onnx.checker.check_model(onnx_model)
 
     import onnxruntime
 
-    ort_session = onnxruntime.InferenceSession("landmark_detection_56_se_external.onnx")
+    ort_session = onnxruntime.InferenceSession("onnx/landmark_detection_56_se_external.onnx")
 
     def to_numpy(tensor):
         return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()

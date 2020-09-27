@@ -3,8 +3,8 @@ Implementation of face landmark detection with PyTorch. The models were trained 
 
 * Support 68-point and 39-point landmark inference.
 * Support different backbone networks and face detectors.
-* Support ONNX inference. 
-* Support heatmap-based inference.
+* Support ONNX and OpenVINO inferences. 
+* Support heatmap-based models.
 
 ## Inference
 Test on a sample folder and save the landmark detection results. Support different backbones and face detectors.
@@ -16,6 +16,9 @@ Optimize with ONNX and test on a camera with MTCNN as a face detector.
 
 Optimize with ONNX and test on a camera with a lightweight face detector. It can achieve **real-time speed on CPU**.
 > python3 test_camera_light_onnx.py
+
+Optimize with OpenVINO and test on a camera with a lightweight face detector. About 10 times faster than ONNX.
+> python3 test_camera_mobilefacenet_openvino.py
 
 ## Benchmark Results on 300W
 
