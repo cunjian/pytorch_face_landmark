@@ -13,7 +13,7 @@ import numpy as np
 from common.utils import BBox,drawLandmark,drawLandmark_multiple
 from models.basenet import MobileNet_GDConv_56
 import matplotlib.pyplot as plt
-from src import detect_faces
+from MTCNN import detect_faces
 from PIL import Image
 import time
 
